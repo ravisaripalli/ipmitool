@@ -89,7 +89,7 @@ struct standard_spec_sel_rec{
 	uint8_t	event_data[3];
 };
 /* Dell Specific MACRO's */
-#define	OEM_CODE_IN_BYTE2		0x80	  /* Dell specific OEM Byte in Byte 2 Mask */
+#define	OEM_CODE_IN_BYTE2		0xF0	  /* Dell specific OEM Byte in Byte 2 Mask */
 #define	OEM_CODE_IN_BYTE3		0x20	  /* Dell specific OEM Byte in Byte 3 Mask */
 /* MASK MACROS */
 #define	MASK_LOWER_NIBBLE		0x0F

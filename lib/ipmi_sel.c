@@ -954,7 +954,20 @@ char * get_dell_evt_desc(struct ipmi_intf * intf, struct sel_event_record * rec)
 						else if(0x0B == (data2 >> 4)) dimmsPerNode = 9;
 						else if(0x0C == (data2 >> 4)) dimmsPerNode = 12;
 						else if(0x0D == (data2 >> 4)) dimmsPerNode = 24;	
-						else if(0x0E == (data2 >> 4)) dimmsPerNode = 3;							
+						else if(0x0E == (data2 >> 4)){
+							switch(data1 >> 4)
+							{
+								case 0x00:  // 3 dimms per node
+								dimmsPerNode = 3;
+								break;     
+								case 0x01: //10 dimms per node on taurus
+								dimmsPerNode = 10;
+								break;
+								case 0x02: //16 DIMMS PER Node on nf platforms
+								dimmsPerNode = 16;
+								break;
+							}
+						}
 						count = 0;
 				        	for (i = 0; i < 8; i++)
 				        	{
